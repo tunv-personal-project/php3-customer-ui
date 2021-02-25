@@ -1,6 +1,6 @@
 import React from 'react';
 
-function index(props) {
+function Footer(props) {
   return (
     <footer class='text-gray-600 body-font'>
       <div class='container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col'>
@@ -179,4 +179,4 @@ function index(props) {
   );
 }
 
-export default index;
+export default Footer;
