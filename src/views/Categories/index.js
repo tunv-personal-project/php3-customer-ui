@@ -1,15 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-function Products(props) {
+function Categories(props) {
   return (
     <>
       <Helmet>
-        <title>Sản Phẩm</title>
+        <title>Danh Mục</title>
       </Helmet>
-      <div>Products</div>
+      <div>Categories</div>
     </>
   );
 }
 
-export default Products;
+export default Categories;

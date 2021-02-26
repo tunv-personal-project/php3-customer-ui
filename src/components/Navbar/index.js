@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import routes from '../../routes';
 
 function Navbar(props) {
   return (
@@ -32,30 +34,26 @@ function Navbar(props) {
 
         <div className='items-center md:flex'>
           <div className='flex flex-col md:flex-row md:mx-6'>
-            <a
+            {/* <a
               className='my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0'
               href='#'
             >
               Home
-            </a>
-            <a
-              className='my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0'
-              href='#'
-            >
-              Shop
-            </a>
-            <a
-              className='my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0'
-              href='#'
-            >
-              Contact
-            </a>
-            <a
-              className='my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0'
-              href='#'
-            >
-              About
-            </a>
+            </a> */}
+            {routes.map((route, index) => {
+              return (
+                route && (
+                  <NavLink
+                    key={index}
+                    to={route.path}
+                    className='my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0'
+                    activeClassName='text-indigo-400'
+                  >
+                    {route.name}
+                  </NavLink>
+                )
+              );
+            })}
           </div>
 
           <div className='flex justify-center md:block'>
