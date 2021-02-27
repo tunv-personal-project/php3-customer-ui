@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -6,6 +6,19 @@ import './App.css';
 const Main = React.lazy(() => import('./layout/Main'));
 
 function App() {
+  const [cart, setCart] = useState(null);
+
+  useEffect(() => {
+    // effect
+    const cartList = localStorage.getItem('cart');
+    if (cartList) {
+      setCart(cartList);
+    }
+    return () => {
+      // cleanup
+    };
+  }, []);
+
   return (
     <>
       <BrowserRouter>

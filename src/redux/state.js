@@ -14,6 +14,10 @@ const states = {
       price: null,
     },
   },
+  shipping: [
+    { id: 'standard', name: 'Tiêu Chuẩn', price: 39000, currency: 'vnd' },
+    { id: 'now', name: 'Giao Nhanh', price: 59000, currency: 'vnd' },
+  ],
 };
 
 export default states;
