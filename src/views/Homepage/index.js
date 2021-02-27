@@ -21,6 +21,7 @@ function Homepage(props) {
             products: resProduct.data.data.data,
             categories: resCategory.data.data.data,
           });
+          console.log('Products', resProduct.data.data.data);
         }
       }
     };
