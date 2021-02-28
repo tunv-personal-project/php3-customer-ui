@@ -46,6 +46,13 @@ const routes = [
     name: 'Chi Tiết Danh Mục',
     component: CategoryDetail,
   },
+  {
+    path: '/checkout',
+    exact: true,
+    is_navbar: false,
+    name: 'Thanh Toán',
+    compoent: '',
+  },
 ];
 
 export default routes;

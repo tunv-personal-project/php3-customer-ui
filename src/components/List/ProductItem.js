@@ -11,7 +11,7 @@ function ProductItem(props) {
     const data = {
       id: productId,
       name: name,
-      img: image,
+      image: image ? image : 'https://dummyimage.com/420x260',
       price: price,
       ammount: 1,
     };
