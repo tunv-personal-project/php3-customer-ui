@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ProductItem from './ProductItem';
 
 function List(props) {
-  const { list, title } = props;
+  const { list, title, categoryName, categoryId } = props;
 
   const [current, setCurrent] = useState({});
 
@@ -14,7 +14,17 @@ function List(props) {
         </h2>
         <div class='flex flex-wrap -m-4'>
           {list &&
-            list.map((item) => <ProductItem key={item.id} data={item} />)}
+            list.map((item) => (
+              <ProductItem
+                key={item.id}
+                name={item.name}
+                image={item.media.url}
+                price={item.price}
+                productId={item.id}
+                categoryName={item.category ? item.category.name : categoryName}
+                categoryId={item.category ? item.category.id : categoryId}
+              />
+            ))}
         </div>
       </div>
     </section>

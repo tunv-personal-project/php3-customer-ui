@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import List from '../../components/List';
 import categories from '../../services/categories';
 
 function CategoryDetail(props) {
@@ -27,20 +28,19 @@ function CategoryDetail(props) {
     <>
       {category ? (
         <div className='container px-5 py-12 mx-auto'>
-          <h2 className='text-2xl font-semibold text-gray-800 uppercase dark:text-white md:text-3xl mb-3'>
-            {category.name}
-          </h2>
-          <p>{category.description}</p>
+          <div className='px-4'>
+            <h2 className='text-2xl font-semibold text-gray-800 uppercase dark:text-white md:text-3xl mb-3'>
+              {category.name}
+            </h2>
+            <p>{category.description}</p>
+          </div>
 
-          <div className='w-full grid grid-cols-3 gap-4 mt-8'>
-            {/* Filter */}
-            <div className='w-full'>
-              <p>Filter</p>
-            </div>
-            {/* Products */}
-            <div className='col-span-2'>
-              <p>Lorem</p>
-            </div>
+          <div className='w-full'>
+            <List
+              list={category.products}
+              categoryName={category.name}
+              categoryId={category.id}
+            />
           </div>
         </div>
       ) : (
