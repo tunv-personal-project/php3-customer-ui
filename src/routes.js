@@ -9,6 +9,7 @@ const CategoryDetail = React.lazy(() =>
   import('./views/Categories/CategoryDetail')
 );
 const Homepage = React.lazy(() => import('./views/Homepage'));
+const Checkout = React.lazy(() => import('./views/Checkout'));
 
 const routes = [
   {
@@ -51,7 +52,7 @@ const routes = [
     exact: true,
     is_navbar: false,
     name: 'Thanh Toán',
-    compoent: '',
+    component: Checkout,
   },
 ];
 
