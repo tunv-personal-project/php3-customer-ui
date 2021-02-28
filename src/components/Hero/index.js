@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink, Route, Switch } from 'react-router-dom';
 
 function Hero(props) {
   return (
@@ -7,16 +8,20 @@ function Hero(props) {
         <div class='w-full md:w-1/2'>
           <div class='max-w-lg'>
             <h1 class='text-2xl font-semibold text-gray-800 uppercase dark:text-white md:text-3xl'>
-              Best Place To Choose Your Clothes
+              Nơi tốt nhất để mua sắm
             </h1>
-            <p class='mt-2 text-gray-600 dark:text-gray-400'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-              beatae error laborum ab amet sunt recusandae? Reiciendis natus
-              perspiciatis optio.
+            <p class='mt-2 text-gray-600 dark:text-gray-400 mb-3'>
+              Gori sẽ mang đến những sản phẩm không chỉ đẹp về mẫu mà mà còn
+              chất lượng về chất vải cho bạn. Chúng tớ quan tâm đến nhu cầu của
+              mọi cá nhân và trân trọng sản phẩm.
             </p>
-            <button class='px-3 py-2 mt-4 text-sm font-medium text-white uppercase bg-indigo-600 rounded-md hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500'>
-              Shop Now
-            </button>
+            <NavLink
+              key='shop'
+              to='/products'
+              className='px-3 py-2 mt-4 text-sm font-medium text-white uppercase bg-indigo-600 rounded-md hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500'
+            >
+              Ghé Shop
+            </NavLink>
           </div>
         </div>
 
