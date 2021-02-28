@@ -1,12 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
+import addToCart from '../../helper/addToCart';
 
 function ProductItem(props) {
   const { name, image, price, categoryName, productId, categoryId } = props;
 
   const handleAddToCart = () => {
     console.log(productId);
+    const data = {
+      id: productId,
+      name: name,
+      img: image,
+      price: price,
+      ammount: 1,
+    };
+
+    try {
+      addToCart(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -32,16 +46,17 @@ function ProductItem(props) {
           </NavLink>
           <NavLink
             to={`/products/${productId}`}
-            className='text-gray-900 title-font text-lg font-medium'
+            className='text-gray-900 title-font text-lg font-medium hover:text-indigo-700 hover:underline'
           >
             {name}
           </NavLink>
-          <p class='mt-1 font-bold text-right'>
+          <p class='mt-1 font-bold'>
             <NumberFormat
               value={price}
               thousandSeparator={true}
               decimalSeparator='.'
-              suffix='vnd'
+              displayType={'text'}
+              suffix=' đ'
             />
           </p>
           <button

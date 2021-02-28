@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Products = React.lazy(() => import('./views/Products'));
+const ProductDetail = React.lazy(() =>
+  import('./views/Products/ProductDetail')
+);
 const Categories = React.lazy(() => import('./views/Categories'));
 const CategoryDetail = React.lazy(() =>
   import('./views/Categories/CategoryDetail')
@@ -22,7 +25,13 @@ const routes = [
     component: Products,
     is_navbar: true,
   },
-  //   { path: '/products/:id', exact: true, name: 'Chi Tiết Sản Phẩm' },
+  {
+    path: '/products/:id',
+    exact: true,
+    name: 'Chi Tiết Sản Phẩm',
+    is_navbar: false,
+    component: ProductDetail,
+  },
   {
     path: '/categories',
     exact: true,
