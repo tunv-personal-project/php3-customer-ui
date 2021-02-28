@@ -40,20 +40,22 @@ function Navbar(props) {
             >
               Home
             </a> */}
-            {routes.map((route, index) => {
-              return (
-                route && (
-                  <NavLink
-                    key={index}
-                    to={route.path}
-                    className='my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0'
-                    activeClassName='text-indigo-400'
-                  >
-                    {route.name}
-                  </NavLink>
-                )
-              );
-            })}
+            {routes
+              .filter((route) => route.is_navbar)
+              .map((route, index) => {
+                return (
+                  route && (
+                    <NavLink
+                      key={index}
+                      to={route.path}
+                      className='my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0'
+                      activeClassName='text-indigo-400'
+                    >
+                      {route.name}
+                    </NavLink>
+                  )
+                );
+              })}
           </div>
 
           <div className='flex justify-center md:block'>
