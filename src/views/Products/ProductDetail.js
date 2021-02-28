@@ -63,6 +63,28 @@ function ProductDetail(props) {
 
               {/* detail */}
               <div className='w-full'>
+                {/* BreadCrumb */}
+                <div className='flex items-center'>
+                  <NavLink
+                    key='homepage'
+                    to='/'
+                    className='text-gray-500 text-base tracking-widest title-font mb-1 mt-4 block'
+                  >
+                    Trang Chủ
+                  </NavLink>
+                  <span className='px-2'>_</span>
+                  <NavLink
+                    key={detail.category.name}
+                    to={`/categories/${detail.category.id}`}
+                    className='text-gray-500 text-base tracking-widest title-font mb-1 mt-4 block'
+                  >
+                    {detail.category.name}
+                  </NavLink>
+                  <span className='px-2'>_</span>
+                  <h3 className='text-indigo-500 font-semibold text-base tracking-widest title-font mb-1 mt-4 block'>
+                    {detail.name}
+                  </h3>
+                </div>
                 <h2 className='text-xl font-semibold text-gray-800 uppercase dark:text-white md:text-3xl mb-3'>
                   {detail.name}
                 </h2>
