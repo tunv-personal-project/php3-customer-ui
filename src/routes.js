@@ -10,6 +10,8 @@ const CategoryDetail = React.lazy(() =>
 );
 const Homepage = React.lazy(() => import('./views/Homepage'));
 const Checkout = React.lazy(() => import('./views/Checkout'));
+const Register = React.lazy(() => import('./views/Auth/Register'));
+const Login = React.lazy(() => import('./views/Auth/Login'));
 
 const routes = [
   {
@@ -53,6 +55,20 @@ const routes = [
     is_navbar: false,
     name: 'Thanh Toán',
     component: Checkout,
+  },
+  {
+    path: '/register',
+    exact: true,
+    is_navbar: false,
+    name: 'Đăng Ký',
+    component: Register,
+  },
+  {
+    path: '/login',
+    exact: true,
+    is_navbar: false,
+    name: 'Đăng Nhập',
+    component: Login,
   },
 ];
 

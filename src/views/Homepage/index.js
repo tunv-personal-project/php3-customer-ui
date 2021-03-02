@@ -1,12 +1,12 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
+import Cons from '../../components/Feature/Cons';
 import Hero from '../../components/Hero';
 import List from '../../components/List';
-import NewsLetter from '../../components/NewsLetter';
-import Cons from '../../components/Feature/Cons';
-import productsService from '../../services/products';
-import categoriesService from '../../services/categories';
 import ListCategories from '../../components/List/ListCategories';
+import NewsLetter from '../../components/NewsLetter';
+import categoriesService from '../../services/categories';
+import productsService from '../../services/products';
 
 function Homepage(props) {
   const [detail, setDetail] = useState({ product: null, category: null });

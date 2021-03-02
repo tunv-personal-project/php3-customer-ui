@@ -22,7 +22,8 @@ function List(props) {
                 price={item.price}
                 productId={item.id}
                 categoryName={item.category ? item.category.name : categoryName}
-                categoryId={item.category ? item.category.id : categoryId}
+                categorySlug={item.category ? item.category.slug : categoryId}
+                slug={item.slug}
               />
             ))}
         </div>

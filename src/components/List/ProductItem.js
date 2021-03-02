@@ -4,7 +4,15 @@ import NumberFormat from 'react-number-format';
 import addToCart from '../../helper/addToCart';
 
 function ProductItem(props) {
-  const { name, image, price, categoryName, productId, categoryId } = props;
+  const {
+    name,
+    image,
+    price,
+    categoryName,
+    productId,
+    categorySlug,
+    slug,
+  } = props;
 
   const handleAddToCart = () => {
     console.log(productId);
@@ -39,13 +47,13 @@ function ProductItem(props) {
         </div>
         <div class='mt-4'>
           <NavLink
-            to={`/categories/${categoryId}`}
+            to={`/categories/${categorySlug}`}
             className='text-gray-500 text-xs tracking-widest title-font mb-1 block'
           >
             {categoryName}
           </NavLink>
           <NavLink
-            to={`/products/${productId}`}
+            to={`/products/${slug}`}
             className='text-gray-900 title-font text-lg font-medium hover:text-indigo-700 hover:underline'
           >
             {name}

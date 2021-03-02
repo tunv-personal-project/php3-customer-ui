@@ -4,26 +4,12 @@ import total from '../../helper/total';
 import order from '../../services/order';
 
 function Items(props) {
+  const { userData } = props;
   const [cart, setCart] = useState(() =>
     JSON.parse(localStorage.getItem('cart'))
   );
-  const [user, setUser] = useState({
-    name: null,
-    email: null,
-    address: null,
-    phone: null,
-    products: null,
-    total: null,
-    quantity: null,
-  });
 
-  const updateField = (event) => {
-    const key = event.target.name;
-    // Check Errors
-    setUser({ ...user, [key]: event.target.value });
-  };
-
-  const handleOrder = async () => {
+  const parseCart = (cart) => {
     const products = [];
 
     cart.map((item) => {
@@ -35,14 +21,55 @@ function Items(props) {
 
       products.push(data);
     });
+    console.log('Product to Order', products);
+    return products;
+  };
 
-    setUser({ ...user, products: products });
+  const [user, setUser] = useState({
+    user_id: userData.id,
+    name: userData.name,
+    email: userData.email,
+    address: null,
+    phone: null,
+    products: parseCart(cart),
+    total: total(cart),
+    quantity: cart.length,
+  });
 
+  const errors = {
+    name: {
+      required: true,
+    },
+    email: {
+      required: true,
+    },
+    address: {
+      required: true,
+    },
+    phone: {
+      required: true,
+    },
+  };
+
+  const checkErrorField = (key, value) => {
+    if (errors[key].required) {
+    }
+  };
+
+  const updateField = (event) => {
+    const key = event.target.name;
+    // Check Errors
+    setUser({ ...user, [key]: event.target.value });
+  };
+
+  const handleOrder = async () => {
     try {
       const response = await order.createOrder(user);
 
       if (response && response.data.is_success) {
-        console.log('Create Order Successfully');
+        window.location.href = '/';
+        localStorage.removeItem('cart');
+        alert('Tạo đơn hàng thành công, vui lòng kiểm tra mail của bạn');
       }
     } catch (error) {
       console.log(error);
@@ -65,6 +92,7 @@ function Items(props) {
                   id='name'
                   name='name'
                   className='w-full bg-gray-100 bg-opacity-50 focus:bg-opacity-100 rounded border focus:border-white text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+                  value={user.name}
                   onChange={updateField}
                 />
               </div>
@@ -76,6 +104,7 @@ function Items(props) {
                   type='email'
                   id='email'
                   name='email'
+                  value={user.email}
                   className='w-full bg-gray-100 bg-opacity-50 focus:bg-opacity-100 rounded border focus:border-white text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
                   onChange={updateField}
                 />
@@ -125,7 +154,7 @@ function Items(props) {
               <ul>
                 {cart &&
                   cart.map((item) => (
-                    <li key={cart.id} className='mb-2'>
+                    <li key={item.id} className='mb-2'>
                       <div className='flex items-center justify-between'>
                         <img
                           alt={item.name}

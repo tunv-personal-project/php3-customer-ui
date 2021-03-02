@@ -11,6 +11,12 @@ function Navbar(props) {
   const [cart, setCart] = useState(() =>
     JSON.parse(localStorage.getItem('cart'))
   );
+  const [user, setUser] = useState({
+    id: '',
+    name: '',
+    email: '',
+    phone: '',
+  });
 
   const handleToggleCart = () => {
     setToggleCart(!toggleCart);
@@ -20,6 +26,18 @@ function Navbar(props) {
     setCart(null);
     localStorage.removeItem('cart');
   };
+
+  // const parsedLink = (routes) => {
+  //   const userData = JSON.parse(localStorage.getItem('user'));
+
+  //   if (userData) {
+  //     setUser(userData);
+  //     routes[6].is_navbar = false;
+  //     routes[7].is_navbar = false;
+  //   }
+
+  //   return routes;
+  // };
 
   return (
     <nav className='bg-white shadow dark:bg-gray-800'>

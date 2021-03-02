@@ -25,7 +25,7 @@ function ProductDescItem(props) {
           <p class='leading-relaxed mb-3'>{data.description}</p>
           <div class='flex items-center flex-wrap '>
             <NavLink
-              to={`/categories/${data.id}`}
+              to={`/categories/${data.slug}`}
               className='text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 hover:underline'
             >
               Xem thêm
