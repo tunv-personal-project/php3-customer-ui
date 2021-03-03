@@ -44,12 +44,12 @@ function Navbar(props) {
       <div className='container px-6 py-3 mx-auto md:flex md:justify-between md:items-center'>
         <div className='flex items-center justify-between'>
           <div>
-            <button
+            <NavLink
+              to='/'
               className='text-xl font-bold text-gray-800 dark:text-white md:text-2xl hover:text-gray-700 dark:hover:text-gray-300'
-              href='#'
             >
-              Brand
-            </button>
+              Tú và Bảo
+            </NavLink>
           </div>
 
           <div className='flex md:hidden'>
